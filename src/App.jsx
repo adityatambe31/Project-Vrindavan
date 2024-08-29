@@ -1,26 +1,53 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Copyright from "./components/Copyright";
-import Home from "./components/Home"; 
-import Media from "./components/Katha";
-import KirtanLectures from './components/KirtanLectures';
-import DarshanGallery from './components/DarshanGallery';
-import Services from "./components/Services";
-import Founder from './components/Founder';
-import History from './components/History';
-import WhyKrishnaConsciousness from './components/why-krishna-consciousness';
-import Philosophy from './components/philosophy';
-import AboutUS from './components/AboutUs';
-import Contact from './components/Contact';
-import TermsAndConditions from './components/TermsAndConditions'; 
-import PrivacyPolicy from './components/PrivacyPolicy'; 
-import ReelContent from './components/ReelContent';
-import InstaPosts from './components/InstaPosts';
-import Quotes from './components/Quotes';
-import BhagwatGita from './components/BhagwatGita';
-import Refund from './components/Refund';
-import Bhagvatam from './components/Bhagvatam';
+
+
+//Navbar Files section Nav imports
+import Navbar from "./components/Navbar/Navbar";
+
+
+
+//Home Files section Nav imports
+import Home from "./components/Home";
+
+
+//Darshan Files section Nav imports 
+import DarshanGallery from './components/DarshanGallery/DarshanGallery';
+
+
+//import Blog from "./components/Blogs";
+
+//Contact Files section Nav imports 
+import Contact from './components/Contact/Contact';
+
+//Footer Files section Nav imports
+import Footer from "./components/Footer/Footer";
+import TermsAndConditions from './components/Footer/TermsAndConditions'; 
+import PrivacyPolicy from './components/Footer/PrivacyPolicy'; 
+import Refund from './components/Footer/Refund';
+import Copyright from "./components/Footer/Copyright";
+
+// Isckon file section Nav imports
+import AboutUS from './components/Isckon/AboutUs';
+import Founder from './components/Isckon/Founder';
+import History from './components/Isckon/History';
+import WhyKrishnaConsciousness from './components/Isckon/why-krishna-consciousness';
+import Philosophy from './components/Isckon/philosophy';
+
+// Bhakti-Katha Files Nav Imports
+import Katha from "./components/BhaktiKathas/Kathas";
+import BhagwatGita from './components/BhaktiKathas/BhagwatGita';
+import Bhagvatam from './components/BhaktiKathas/Bhagvatam';
+
+//Kirtan&Lectures Files Nav Imports
+import KirtanLectures from './components/Kirtan&Lectures/KirtanLectures';
+import ReelContent from './components/Kirtan&Lectures/ReelContent';
+import FbPosts from './components/Kirtan&Lectures/FbPosts';
+
+
+// Quotes Files Nav Imports
+import Quotes from './components/Quotes/Quotes';
+import SrilaPrabhupad from './components/Quotes/SrilaPrabhupad';
+
 
 const App = () => {
   return (
@@ -30,21 +57,39 @@ const App = () => {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/blog/reel-content" element={<ReelContent />} />
-            <Route path="/blog/posts" element={<InstaPosts />} />
-            <Route path="/blog/quotes" element={<Quotes />} />
+            
+            {/* Isckon Nav Section */}
+            <Route path="about/about-us" element={<AboutUS />} />
+            <Route path="about/founder" element={<Founder />} />
+            <Route path="about/why-krishna-consciousness" element={<WhyKrishnaConsciousness />} />
+            <Route path="about/history" element={<History />} />
+            <Route path="about/philosophy" element={<Philosophy />} />
+            
+
+            {/* Quotes Gallery Section */}
+            <Route path="/quotes" element={<Quotes />} />
+            <Route path="/quotes/srila-prabhupad" element={<SrilaPrabhupad />} />
+            
+
+            {/* Katha Nav Section and sub-menus */}
+            <Route path="/katha" element={<Katha />} />
+            <Route path="/katha/darshan-gallery" element={<DarshanGallery />} />
+            <Route path="/katha/bhagwat-gita" element={<BhagwatGita />} />
+            <Route path="/katha/bhagvatam" element={<Bhagvatam />} />
+          
+
+            Kirtan & Lectures Section
+            <Route path="/kirtan&lectures" element={<KirtanLectures />} />
+            <Route path="/kirtan/reels" element={<ReelContent />} />
+            <Route path="/kirtan/lectures" element={<KirtanLectures />} />
+            <Route path="/kirtan/fbposts" element={<FbPosts />} />
+           
+
+
+            {/* Contact Section */}
             <Route path="/contact" element={<Contact />} />
-            <Route path="/media" element={<Media />} />
-            <Route path="/media/kirtan-lectures" element={<KirtanLectures />} />
-            <Route path="/media/darshan-gallery" element={<DarshanGallery />} />
-            <Route path="/media/bhagwat-gita" element={<BhagwatGita />} />
-            <Route path="/media/bhagvatam" element={<Bhagvatam />} />
-            <Route path="/about/about-us" element={<AboutUS />} />
-            <Route path="/about/founder" element={<Founder />} />
-            <Route path="/about/why-krishna-consciousness" element={<WhyKrishnaConsciousness />} />
-            <Route path="/about/history" element={<History />} />
-            <Route path="/about/philosophy" element={<Philosophy />} />
+           
+            {/* Footer Section */}
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
             <Route path="/refund-policy" element={<Refund />} /> 

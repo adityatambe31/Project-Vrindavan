@@ -75,9 +75,9 @@ const Home = () => {
         {/* Explore Section */}
         <div className="mb-16 pt-20">
           <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold mb-4 md:mb-0">Explore</h2>
+            <h2 className="text-2xl font-bold mb-4 md:mb-0">Quotes</h2>
             <Link
-              to="/services/reel-content"
+              to="/quotes/srila-prabhupad"
               className="bg-blue-600 text-white py-2 px-4 rounded-full inline-block"
             >
               View All
@@ -110,23 +110,24 @@ const Home = () => {
             <button
               onClick={() => exploreRef.current.scrollBy({ left: -200, behavior: 'smooth' })}
               className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
-            >
+              >
               <FaChevronLeft className="text-blue-600" />
             </button>
             <button
               onClick={() => exploreRef.current.scrollBy({ left: 200, behavior: 'smooth' })}
               className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
-            >
+              >
               <FaChevronRight className="text-blue-600" />
             </button>
           </div>
         </div>
-        {/* Services Section */}
+
+        {/* Kirtan &Lectures Reel Section */}
         <div className="mb-16">
           <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold mb-4 md:mb-0">Katha Vani</h2>
+            <h2 className="text-2xl font-bold mb-4 md:mb-0">Kirtan & Lectures</h2>
             <Link
-              to="/services"
+              to="/kirtan/lectures"
               className="bg-blue-600 text-white py-2 px-4 rounded-full inline-block"
             >
               View All
@@ -170,35 +171,64 @@ const Home = () => {
                </button>
              </div>
            </div>
-           {/* About Reel Section */}
-           <div className="mb-16">
-             <h2 className="text-2xl font-bold mb-6">Blog-Post</h2>
-             <div className="flex flex-wrap -mx-2">
-               {[1, 2, 3, 4].map((item, index) => (
-                 <motion.div
-                   key={index}
-                   className="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
-                   initial={{ opacity: 0, y: 20 }}
-                   animate={{ opacity: 1, y: 0 }}
-                   exit={{ opacity: 0, y: 20 }}
-                   transition={{ duration: 0.5, ease: 'easeInOut' }}
-                 >
-                   <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                     <img
-                       src={`https://via.placeholder.com/150?text=About+${item}`}
-                       alt={`About ${item}`}
-                       className="w-full h-40 object-cover"
-                     />
-                     <div className="p-4">
-                       <p className="text-lg font-semibold">About {item}</p>
-                     </div>
-                   </div>
-                 </motion.div>
-               ))}
+
+        {/* Blog Section */}
+        <div className="mb-16">
+          <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold mb-4 md:mb-0">Blo</h2>
+            <Link
+              to="/kirtan/lectures"
+              className="bg-blue-600 text-white py-2 px-4 rounded-full inline-block"
+            >
+              View All
+            </Link>
+          </div>
+          <div className="relative">
+            <div className="flex overflow-x-scroll scrollbar-hidden md:overflow-hidden" ref={kathaVaniRef}>
+              {[1, 2, 3, 4].map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="flex-shrink-0 w-64 md:w-80 rounded-lg overflow-hidden bg-white shadow-md mx-2"
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                >
+                  <Link to="/services">
+                    <img
+                      src={`https://via.placeholder.com/150?text=Service+${item}`}
+                      alt={`Service ${item}`}
+                      className="w-full h-48 object-cover"
+                    />
+                                           <div className="p-4">
+                         <p className="text-lg font-semibold">Service {item}</p>
+                       </div>
+                     </Link>
+                   </motion.div>
+                 ))}
+               </div>
+               <button
+                 onClick={() => kathaVaniRef.current.scrollBy({ left: -200, behavior: 'smooth' })}
+                 className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
+               >
+                 <FaChevronLeft className="text-blue-600" />
+               </button>
+               <button
+                 onClick={() => kathaVaniRef.current.scrollBy({ left: 200, behavior: 'smooth' })}
+                 className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
+               >
+                 <FaChevronRight className="text-blue-600" />
+               </button>
              </div>
            </div>
-         </div>
-       </div>
+
+           
+          
+
+               {/* Blogs Section */}
+       
+             </div>
+           </div>
      );
    };
 
