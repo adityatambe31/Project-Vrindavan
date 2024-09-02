@@ -38,6 +38,8 @@ import Philosophy from './components/Isckon/philosophy';
 import Katha from "./components/BhaktiKathas/Kathas";
 import BhagwatGita from './components/BhaktiKathas/BhagwatGita';
 import Bhagvatam from './components/BhaktiKathas/Bhagvatam';
+import Chaitanya from './components/BhaktiKathas/Chaitanya';
+import Prabhupadlila from './components/BhaktiKathas/Prabhupad-lila';
 
 //Kirtan&Lectures Files Nav Imports
 import KirtanLectures from './components/Kirtan&Lectures/KirtanLectures';
@@ -48,6 +50,7 @@ import FbPosts from './components/Kirtan&Lectures/FbPosts';
 // Quotes Files Nav Imports
 import Quotes from './components/Quotes/Quotes';
 import SrilaPrabhupad from './components/Quotes/SrilaPrabhupad';
+import PrabhupadVani from './components/BhaktiKathas/Prabhupad-vani';
 
 
 const App = () => {
@@ -77,6 +80,9 @@ const App = () => {
             <Route path="/katha/darshan-gallery" element={<DarshanGallery />} />
             <Route path="/katha/bhagwat-gita" element={<BhagwatGita />} />
             <Route path="/katha/bhagvatam" element={<Bhagvatam />} />
+            <Route path="/katha/chaitanya" element={<Chaitanya />} />
+            <Route path="/katha/prabhupad-lila" element={<Prabhupadlila />} />
+            <Route path="/katha/prabhupad-vani" element={<PrabhupadVani />} />
           
 
             Kirtan & Lectures Section

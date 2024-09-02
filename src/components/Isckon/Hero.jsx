@@ -38,20 +38,20 @@ const Carousel = ({ images }) => {
 
   return (
     <div className="relative w-full max-w-6xl mx-auto mb-16 pt-40">
-      <div className="relative overflow-hidden rounded-lg h-64 md:h-80 lg:h-96">
-        <AnimatePresence>
-          <motion.img
-            key={currentIndex}
-            src={images[currentIndex]}
-            alt={`Slide ${currentIndex + 1}`}
-            className="w-full h-auto object-cover p-10"
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={fadeInOut}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-          />
-        </AnimatePresence>
+     <div className="relative overflow-hidden rounded-lg h-64 md:h-80 lg:h-96">
+    <AnimatePresence>
+      <motion.img
+        key={currentIndex}
+        src={images[currentIndex]}
+        alt={`Slide ${currentIndex + 1}`}
+        className="w-full h-full object-cover"
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={fadeInOut}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+      />
+    </AnimatePresence>
 
         {/* Navigation Buttons */}
         <button
@@ -109,7 +109,7 @@ const Hero = () => {
 
       {/* Hero Section */}
       <motion.div
-        className="relative w-full h-96 bg-fixed bg-center bg-cover mb-16"
+        className="relative w-full h-96 bg-fixed bg-center bg-cover mb-14"
         style={{ backgroundImage: `url(${bgImg})` }}
         initial="hidden"
         animate="visible"
@@ -125,52 +125,12 @@ const Hero = () => {
 
       {/* About Section */}
       
-      {/* Service and Outreach Section */}
-      <motion.div
-        className="max-w-6xl mx-auto p-8 bg-white shadow-lg rounded-lg mb-16"
-        initial="hidden"
-        animate="visible"
-        variants={slideInOut}
-      >
-        <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-          Service & Outreach
-        </h2>
-        <p className="text-gray-600 text-lg mb-4">
-          Hari Govind Das has been instrumental in organizing spiritual events and offering Bhagavad Gita classes. His outreach includes extensive digital presence where he shares his teachings through Facebook.
-        </p>
-        <div className="flex justify-center space-x-6 mt-6">
-          <Link to="https://facebook.com" target="_blank">
-            <FaFacebook className="text-blue-600 text-3xl hover:text-blue-800 transition" />
-          </Link>
-          <Link to="https://whatsapp.com" target="_blank">
-            <FaWhatsapp className="text-green-600 text-3xl hover:text-green-800 transition" />
-          </Link>
-          <Link to="https://instagram.com" target="_blank">
-            <FaInstagram className="text-pink-600 text-3xl hover:text-pink-800 transition" />
-          </Link>
-        </div>
-      </motion.div>
+    
 
-      {/* Call to Action */}
-      <motion.div
-        className="max-w-6xl mx-auto text-center  p-4"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInOut}
-      >
-        <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-          Connect with Us
-        </h2>
-        <p className="text-gray-600 text-lg mb-6">
-          Explore more about Hari Govind Das and his services. Join us in the spiritual journey and stay updated with the latest teachings and events.
-        </p>
-        <Link to="/services" className="text-blue-600 underline text-lg">
-          Explore Our Services
-        </Link>
-      </motion.div>
+     
     
     {/* Journey of Hari Govind Das */}
-   <div className="bg-gray-100 rounded-lg shadow-lg">
+   <div className="bg-gray-100 rounded-lg shadow-lg p-20">
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -178,7 +138,7 @@ const Hero = () => {
     className="p-40"
   >
     <motion.h2
-      className="text-4xl font-bold text-gray-800 mb-6 text-center"
+      className="text-4xl font-bold text-gray-800 mb-6 text-center "
       initial={{ scale: 0.8 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.6, ease: 'easeInOut' }}
@@ -256,22 +216,47 @@ const Hero = () => {
       initial={{ scale: 0.8 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.8, ease: 'easeInOut', delay: 2.1 }}
-      className="inline-block mt-4"
+      className="inline-block mb-6"
     >
       <p className="text-lg text-gray-700 text-center">
         This is the journey of Hari Govind Das—a life of devotion, transformation, and unwavering dedication to the teachings of Lord Krishna.
       </p>
     </motion.div>
-  </motion.div>
-</div>
-
-
-      {/* Banner section for about  */}
-      
-
-
+  
+        {/* Service and Outreach Section */}
+      <motion.div
+        className="max-w-6xl mx-auto p-8 bg-white shadow-lg rounded-lg mb-16"
+        initial="hidden"
+        animate="visible"
+        variants={slideInOut}
+        >
+        <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+          Connect with Us
+        </h2>
+        <p className="text-gray-600 text-lg mb-4">
+          Hari Govind Das has been instrumental in organizing spiritual events and offering Bhagavad Gita classes. His outreach includes extensive digital presence where he shares his teachings through Facebook.
+        </p>
+        <p className="text-gray-600 text-lg mb-6">
+          Explore more about Hari Govind Das and his services. Join us in the spiritual journey and stay updated with the latest teachings and events.
+        </p>
+        <div className="flex justify-center space-x-6 mt-6">
+        <Link to="/services" className="text-grey-600 no-underline text-lg">
+          Explore Our Services
+        </Link>
+          <Link to="https://facebook.com" target="_blank">
+            <FaFacebook className="text-blue-600 text-3xl hover:text-blue-800 transition" />
+          </Link>
+          <Link to="https://whatsapp.com" target="_blank">
+            <FaWhatsapp className="text-green-600 text-3xl hover:text-green-800 transition" />
+          </Link>
+          <Link to="https://instagram.com" target="_blank">
+            <FaInstagram className="text-pink-600 text-3xl hover:text-pink-800 transition" />
+          </Link>
+        </div>
+      </motion.div>
+        </motion.div>
     </div>
-    
+    </div>
 
 
   );
