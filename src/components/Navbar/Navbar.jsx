@@ -96,7 +96,7 @@ const Navbar = () => {
         zIndex: 1000,
         backgroundColor: isNavbarVisible ? 'rgba(255, 255, 255, 0.9)' : 'transparent',
       }}
-      className="fixed top-0 inset-x-0 mx-auto flex items-center justify-between py-4 shadow-md w-full max-w-6xl rounded-b-full md:px-16 transition-all duration-500"
+      className="fixed top-0 inset-x-0 mx-auto flex items-center justify-between py-2 shadow-md w-full max-w-6xl rounded-b-full md:px-16 transition-all duration-500"
     >
       <div className="flex items-center z-10">
         <Link to="/" className="flex-shrink-0" onClick={handleLinkClick}>
@@ -134,6 +134,13 @@ const Navbar = () => {
           {isAboutDropdownOpen && (
             <div className="absolute left-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-48 z-20">
               {/* Dropdown Items */}
+              <Link
+                to="/about/hero"
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-200 transition-colors duration-300"
+                onClick={handleLinkClick}
+              >
+                About Hari-Govind-Das
+              </Link>
               <Link
                 to="/about/about-us"
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-200 transition-colors duration-300"

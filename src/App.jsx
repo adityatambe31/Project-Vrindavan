@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 //Navbar Files section Nav imports
 import Navbar from "./components/Navbar/Navbar";
 
-
+//Hero File section Nav imports
+import Hero from './components/Isckon/Hero'
 
 //Home Files section Nav imports
 import Home from "./components/Home";
@@ -59,12 +60,12 @@ const App = () => {
             <Route path="/" element={<Home />} />
             
             {/* Isckon Nav Section */}
+            <Route path="/about/hero" element={<Hero />} /> 
             <Route path="about/about-us" element={<AboutUS />} />
             <Route path="about/founder" element={<Founder />} />
             <Route path="about/why-krishna-consciousness" element={<WhyKrishnaConsciousness />} />
             <Route path="about/history" element={<History />} />
             <Route path="about/philosophy" element={<Philosophy />} />
-            
 
             {/* Quotes Gallery Section */}
             <Route path="/quotes" element={<Quotes />} />
@@ -93,6 +94,9 @@ const App = () => {
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
             <Route path="/refund-policy" element={<Refund />} /> 
+
+            {/* Hero section */}
+
             
             </Routes>
         </main>

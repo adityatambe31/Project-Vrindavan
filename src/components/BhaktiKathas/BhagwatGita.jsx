@@ -99,7 +99,7 @@ const BhagwatGita = () => {
         {/* Slider Section */}
         <div className="mt-10 relative">
           <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold mb-4 md:mb-0">Slocks</h2>
+            <h2 className="text-2xl font-bold mb-4 md:mb-0">Sholka</h2>
             <a
               href="https://www.facebook.com/harekrishnaahilyanagar"
               target="_blank"
