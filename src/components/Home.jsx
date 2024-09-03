@@ -9,13 +9,17 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
+import headingImage from "../assets/harigovinddas-home.png";
+import AboutImage from "../assets/about-hari-govind-das.png";
+
 // Image URLs for the slider and background
 const images = [
   "https://scontent-ord5-1.xx.fbcdn.net/v/t1.6435-9/67496136_2266851236731606_3034995037210411008_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=pXngMZRN2JsQ7kNvgGEd1MN&_nc_ht=scontent-ord5-1.xx&_nc_gid=AXF5WA5raZ45E4B7_h_4gCU&oh=00_AYA79do1n7xTYrOtLc5sf8ovm2w0ZK_MnD5WVA1ZVtA6eg&oe=66F86266",
   "https://scontent-ord5-2.xx.fbcdn.net/v/t1.6435-9/67272415_2270638099686253_5135201484807340032_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=v8oVKnz0Hw0Q7kNvgHdevmS&_nc_ht=scontent-ord5-2.xx&oh=00_AYD8v8TRJTzJHMhVicFx86_peCbOi26qkGdEK4L8XYglZA&oe=66F88091",
   "https://scontent-ord5-1.xx.fbcdn.net/v/t1.6435-9/33788802_1646381012111968_5595745785665814528_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=GACvL0j9eY8Q7kNvgGV-RGo&_nc_ht=scontent-ord5-1.xx&oh=00_AYDn-e2EUT6g--PoQ1jaOk8KtvJnHYdz20x1IE8oo6-kdQ&oe=66F86946",
 ];
-const parallaxImage = "/src/assets/img-5.png"; // Replace with your parallax image
+
+const parallaxImage = "/src/assets/img-5.png";
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,11 +40,6 @@ const Home = () => {
     const interval = setInterval(handleNext, 3000);
     return () => clearInterval(interval);
   }, []);
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1 } },
-  };
 
   const slideIn = {
     hidden: { x: -100, opacity: 0 },
@@ -93,77 +92,87 @@ const Home = () => {
 
         {/* Add padding between sections */}
         <div className="py-8"></div>
-        {/* Parallax Background - Welcome Section */}
-        <motion.div
-          className="relative w-full h-96 bg-fixed bg-center bg-cover mb-16 rounded"
-          style={{ backgroundImage: `url(${parallaxImage})` }}
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-        >
-          <div className="absolute inset-0 bg-black opacity-30"></div>
-          <div className="relative z-10 flex items-center justify-center h-full ">
-            <a href="/" className="no-underline">
-              <h1 className="text-white text-4xl font-bold ">
-                WELCOME TO HARIGOVINDDAS.COM
-              </h1>
-            </a>
-          </div>
-        </motion.div>
 
         {/* Parallax Background - About Hari Govind Section */}
         <motion.div
           className="relative w-full h-96 bg-fixed bg-center bg-cover mb-16 rounded-lg overflow-hidden"
           style={{ backgroundImage: `url(${parallaxImage})` }}
-          initial="hidden"
-          animate="visible"
-          variants={slideIn}
         >
           <div className="absolute inset-0 bg-black opacity-30"></div>
+
+          {/* Animated Content */}
           <div className="relative z-10 flex items-center justify-center h-full">
-            <div className="max-w-6xl mx-auto text-center text-white">
-              <h2 className="text-3xl font-bold mb-4">About Hari Govind Das</h2>
-              <p className="text-lg mb-6">
-                In devotional service there is no frustration, even if we
-                perform only a small amount, it will grow. devotional service is
-                never lost. -- Hari Govind.
-              </p>
-              <motion.button
-                type="button"
-                className="text-white bg-text-blue-300 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-                whileHover={{
-                  scale: [1, 1.1, 1],
-                  transition: {
-                    duration: 0.6,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                  },
-                }}
+            <a href="/" className="no-underline">
+              <motion.h1
+                className="text-white text-4xl font-bold"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
               >
-                <Link to="/about/hero" className=" no-underline">
-                  Learn more{" "}
-                </Link>
-              </motion.button>
-            </div>
+                <motion.img
+                  src={headingImage}
+                  alt="Heading Text"
+                  className="w-2/3 h-auto p-10 mx-auto"
+                  initial={{ scale: 0.8 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
+                />
+              </motion.h1>
+            </a>
           </div>
         </motion.div>
 
-        {/* Parallax Background - Welcome Message */}
         <motion.div
           className="relative w-full h-96 bg-fixed bg-center bg-cover mb-16 rounded-lg overflow-hidden"
           style={{ backgroundImage: `url(${parallaxImage})` }}
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
         >
           <div className="absolute inset-0 bg-black opacity-30"></div>
+
+          {/* Content Animation */}
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="max-w-6xl mx-auto text-center text-white">
-              <h2 className="text-3xl font-bold mb-4">
-                Welcome to Our Spiritual Community
-              </h2>
-              <p className="text-lg mb-6"></p>
+              <motion.h2
+                className="text-3xl font-bold mb-4"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+              >
+                <img
+                  src={AboutImage}
+                  alt="Heading Text"
+                  className="w-1/2 h-auto p-10 mx-auto"
+                />
+              </motion.h2>
+
+              {/* Quote Section */}
+              <motion.div
+                className="relative w-full max-w-3xl mx-auto mb-16 px-4 md:px-8 lg:px-16 py-8 bg-black bg-opacity-40 rounded-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+              >
+                <div className="text-center text-white">
+                  <motion.blockquote
+                    className="text-lg italic mb-4"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
+                  >
+                    “From restless youth to devoted servant, my life transformed
+                    by the teachings of Lord Krishna.” -Hari Govind Das..
+                  </motion.blockquote>
+
+                  <motion.a
+                    href="/about/hero"
+                    className="inline-block mt-8 px-6 py-2 bg-gray-500 text-white rounded-full text-lg font-medium hover:bg-gray-700 transition-all duration-300 ease-in-out"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+                  >
+                    Learn More {" >"}
+                  </motion.a>
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
@@ -179,24 +188,57 @@ const Home = () => {
           <div className="absolute inset-0 bg-black opacity-30"></div>
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="max-w-6xl mx-auto text-center text-white">
-              <h2 className="text-3xl font-bold mb-4">
+              <motion.h2
+                className="text-3xl font-bold mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+              >
                 Subscribe for Latest Updates
-              </h2>
-              <p className="text-lg mb-6">
+              </motion.h2>
+              <motion.p
+                className="text-lg mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+              >
                 Stay connected with us for the latest updates, events, and
                 spiritual insights.
-              </p>
-              <div className="flex justify-center space-x-6">
+              </motion.p>
+              <motion.div
+                className="flex justify-center space-x-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
+              >
                 <Link to="https://facebook.com" target="_blank">
-                  <FaFacebook className="text-blue-300 text-3xl" />
+                  <motion.div
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <FaFacebook className="text-blue-300 text-3xl" />
+                  </motion.div>
                 </Link>
                 <Link to="https://whatsapp.com" target="_blank">
-                  <FaWhatsapp className="text-green-300 text-3xl" />
+                  <motion.div
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <FaWhatsapp className="text-green-300 text-3xl" />
+                  </motion.div>
                 </Link>
                 <Link to="https://instagram.com" target="_blank">
-                  <FaInstagram className="text-pink-300 text-3xl" />
+                  <motion.div
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <FaInstagram className="text-pink-300 text-3xl" />
+                  </motion.div>
                 </Link>
-              </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>

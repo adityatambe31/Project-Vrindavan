@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { FaFacebook, FaWhatsapp, FaInstagram} from 'react-icons/fa';
-import bgImg from '/src/assets/img-4.jpg';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FaFacebook, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import bgImg from "/src/assets/img-4.jpg";
 
 // Animation variants
 const fadeInOut = {
@@ -19,6 +19,7 @@ const slideInOut = {
 // Carousel Component
 const Carousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  ``;
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -32,26 +33,22 @@ const Carousel = ({ images }) => {
     );
   };
 
-
-
-  
-
   return (
     <div className="relative w-full max-w-6xl mx-auto mb-16 pt-40">
-     <div className="relative overflow-hidden rounded-lg h-64 md:h-80 lg:h-96">
-    <AnimatePresence>
-      <motion.img
-        key={currentIndex}
-        src={images[currentIndex]}
-        alt={`Slide ${currentIndex + 1}`}
-        className="w-full h-full object-cover"
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-        variants={fadeInOut}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
-      />
-    </AnimatePresence>
+      <div className="relative overflow-hidden rounded-lg h-64 md:h-80 lg:h-96">
+        <AnimatePresence>
+          <motion.img
+            key={currentIndex}
+            src={images[currentIndex]}
+            alt={`Slide ${currentIndex + 1}`}
+            className="w-full h-full object-cover"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={fadeInOut}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          />
+        </AnimatePresence>
 
         {/* Navigation Buttons */}
         <button
@@ -73,7 +70,7 @@ const Carousel = ({ images }) => {
             <div
               key={index}
               className={`w-3 h-3 rounded-full cursor-pointer transition ${
-                index === currentIndex ? 'bg-blue-500' : 'bg-gray-400'
+                index === currentIndex ? "bg-blue-500" : "bg-gray-400"
               }`}
               onClick={() => setCurrentIndex(index)}
             />
@@ -93,172 +90,206 @@ Carousel.propTypes = {
 const Hero = () => {
   // Array of image URLs for the carousel
   const imageUrls = [
-    '/src/assets/img-1.jpg',
-    '/src/assets/img-2.jpg',
-    '/src/assets/img-3.jpg',
-    '/src/assets/img-4.jpg',
+    "/src/assets/img-1.jpg",
+    "/src/assets/img-2.jpg",
+    "/src/assets/img-3.jpg",
+    "/src/assets/img-4.jpg",
   ];
-
-
 
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Banner Carousel */}
-      
+
       <Carousel images={imageUrls} />
 
       {/* Hero Section */}
       <motion.div
-        className="relative w-full h-96 bg-fixed bg-center bg-cover mb-14"
+        className="relative w-full max-w-6xl mx-auto mb-16 pt-40 px-4 md:px-8 lg:px-16 bg-fixed bg-center bg-cover"
         style={{ backgroundImage: `url(${bgImg})` }}
-        initial="hidden"
-        animate="visible"
-        variants={fadeInOut}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
-        <div className="absolute inset-0 bg-black opacity-30"></div>
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <h1 className="text-white text-4xl font-bold text-center p-4">
-            About Hari Govind Das
-          </h1>
+        <div className="relative overflow-hidden rounded-lg h-64 md:h-80 lg:h-96">
+          <div className="relative z-10 flex items-center justify-center h-full">
+            <h1 className="text-white text-4xl font-bold text-center p-4">
+              About Hari Govind Das
+            </h1>
+          </div>
         </div>
       </motion.div>
 
-      {/* About Section */}
-      
-    
-
-     
-    
-    {/* Journey of Hari Govind Das */}
-   <div className="bg-gray-100 rounded-lg shadow-lg p-20">
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1, ease: 'easeInOut' }}
-    className="p-40"
-  >
-    <motion.h2
-      className="text-4xl font-bold text-gray-800 mb-6 text-center "
-      initial={{ scale: 0.8 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.6, ease: 'easeInOut' }}
-    >
-      The Journey of Hari Govind Das
-    </motion.h2>
-    <motion.p
-      className="text-lg text-gray-700 mb-6 pt-10"
-      initial={{ x: -100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeInOut' }}
-    >
-      It was the year 1996, and I had just joined college, entering the 11th grade. My mother, who was always seeking spiritual knowledge, attended a lecture by H.S. Ram Roop Prabhu and asked me to tag along. 
-      Reluctantly, I agreed, not knowing how that day would change my life forever.
-    </motion.p>
-    <motion.p
-      className="text-lg text-gray-700 mb-6"
-      initial={{ x: 100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.3 }}
-    >
-      The hall was packed, and I found myself sitting in the front row, directly in front of the speaker. At 16, I was restless, wondering how I’d endure the next hour. But as the lecture began, something extraordinary happened. 
-      Ram Roop Prabhu started telling a story about a woodpecker and a lotus flower. The woodpecker, drawn by the sweetness of the lotus, would get lost in its scent, only to be trapped inside as the petals closed at sunset. 
-      The moral was clear: in the materialistic world, we often lose ourselves in fleeting pleasures, forgetting our true spiritual nature.
-    </motion.p>
-    <motion.p
-      className="text-lg text-gray-700 mb-6"
-      initial={{ x: -100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.6 }}
-    >
-      This story stirred something deep within me. That night, I couldn’t sleep, my mind racing with thoughts about the nature of the soul. 
-      The next morning, I woke up at 3 AM and attended the Mangala Aarti. On my way home, I overheard someone mentioning a Bhagavad Katha by H.H. Radha Govind Goswami Maharaj. 
-      Intrigued, I stayed to listen to the first lecture, which was about the devotee Jad Bharat. 
-    </motion.p>
-    <motion.p
-      className="text-lg text-gray-700 mb-6"
-      initial={{ x: 100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.9 }}
-    >
-      That lecture captivated me so deeply that I stayed for the entire 8-day Katha, absorbing every word. This experience transformed me, changing my thinking and my life. 
-      I became a regular visitor to the temple, attending every program, every weekend, and eventually, in 1997, I took initiation from H.H. Radha Govind Goswami Maharaj.
-    </motion.p>
-    <motion.p
-      className="text-lg text-gray-700 mb-6"
-      initial={{ x: -100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeInOut', delay: 1.2 }}
-    >
-      My parents also embraced devotional service, and our family’s commitment deepened over the years. 
-      When my mother passed away, her last words to me were a reminder to take care of our devotional service. 
-      Honoring her memory, I started hosting kirtans and lectures at our home from 2018 to 2023, fulfilling her last wish.
-    </motion.p>
-    <motion.p
-      className="text-lg text-gray-700 mb-6"
-      initial={{ x: 100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeInOut', delay: 1.5 }}
-    >
-      In 2015, I began sharing my journey on Facebook, posting about devotional service and spreading the teachings of Krishna. 
-      This led to the founding of ISKCON Ahmednagar Media, which I managed from 2016 to 2020, dedicating myself to the service at its peak.
-    </motion.p>
-    <motion.p
-      className="text-lg text-gray-700 mb-6"
-      initial={{ x: -100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeInOut', delay: 1.8 }}
-    >
-      My daily routine starts at 3 AM with Japmala, followed by exercise. I then create handcrafted posts on my phone before heading to work. 
-      At my job, I often counsel colleagues on the teachings of the Bhagavad Gita, distributing copies to those interested. 
-      This allows me to balance my material responsibilities with my spiritual mission, living a life dedicated to both worldly duties and divine service.
-    </motion.p>
-    <motion.div
-      initial={{ scale: 0.8 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.8, ease: 'easeInOut', delay: 2.1 }}
-      className="inline-block mb-6"
-    >
-      <p className="text-lg text-gray-700 text-center">
-        This is the journey of Hari Govind Das—a life of devotion, transformation, and unwavering dedication to the teachings of Lord Krishna.
-      </p>
-    </motion.div>
-  
-        {/* Service and Outreach Section */}
-      <motion.div
-        className="max-w-6xl mx-auto p-8 bg-white shadow-lg rounded-lg mb-16"
-        initial="hidden"
-        animate="visible"
-        variants={slideInOut}
+      {/* Journey of Hari Govind Das */}
+      <div className="bg-gray-100 rounded-lg shadow-lg p-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className="p-40"
         >
-        <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-          Connect with Us
-        </h2>
-        <p className="text-gray-600 text-lg mb-4">
-          Hari Govind Das has been instrumental in organizing spiritual events and offering Bhagavad Gita classes. His outreach includes extensive digital presence where he shares his teachings through Facebook.
-        </p>
-        <p className="text-gray-600 text-lg mb-6">
-          Explore more about Hari Govind Das and his services. Join us in the spiritual journey and stay updated with the latest teachings and events.
-        </p>
-        <div className="flex justify-center space-x-6 mt-6">
-        <Link to="/services" className="text-grey-600 no-underline text-lg">
-          Explore Our Services
-        </Link>
-          <Link to="https://facebook.com" target="_blank">
-            <FaFacebook className="text-blue-600 text-3xl hover:text-blue-800 transition" />
-          </Link>
-          <Link to="https://whatsapp.com" target="_blank">
-            <FaWhatsapp className="text-green-600 text-3xl hover:text-green-800 transition" />
-          </Link>
-          <Link to="https://instagram.com" target="_blank">
-            <FaInstagram className="text-pink-600 text-3xl hover:text-pink-800 transition" />
-          </Link>
-        </div>
-      </motion.div>
+          <h2 className="text-3xl font-bold mb-4">
+            Journey Of Hari Govind Das
+          </h2>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.3,
+                },
+              },
+            }}
+            className="space-y-6"
+          >
+            <motion.p
+              className="text-lg text-gray-700"
+              variants={{
+                hidden: { x: -100, opacity: 0 },
+                visible: { x: 0, opacity: 1 },
+              }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+            >
+              It was the year 1996, and I had just joined college, entering the
+              11th grade. My mother, who was always seeking spiritual knowledge,
+              attended a lecture by H.S. Ram Roop Prabhu and asked me to tag
+              along. Reluctantly, I agreed, not knowing how that day would
+              change my life forever.
+            </motion.p>
+            <motion.p
+              className="text-lg text-gray-700"
+              variants={{
+                hidden: { x: -100, opacity: 0 },
+                visible: { x: 0, opacity: 1 },
+              }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+            >
+              The hall was packed, and I found myself sitting in the front row,
+              directly in front of the speaker. At 16, I was restless, wondering
+              how I’d endure the next hour. But as the lecture began, something
+              extraordinary happened. Ram Roop Prabhu started telling a story
+              about a woodpecker and a lotus flower. The woodpecker, drawn by
+              the sweetness of the lotus, would get lost in its scent, only to
+              be trapped inside as the petals closed at sunset. The moral was
+              clear: in the materialistic world, we often lose ourselves in
+              fleeting pleasures, forgetting our true spiritual nature.
+            </motion.p>
+            <motion.p
+              className="text-lg text-gray-700"
+              variants={{
+                hidden: { x: -100, opacity: 0 },
+                visible: { x: 0, opacity: 1 },
+              }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+            >
+              This story stirred something deep within me. That night, I
+              couldn’t sleep, my mind racing with thoughts about the nature of
+              the soul. The next morning, I woke up at 3 AM and attended the
+              Mangala Aarti. On my way home, I overheard someone mentioning a
+              Bhagavad Katha by H.H. Radha Govind Goswami Maharaj. Intrigued, I
+              stayed to listen to the first lecture, which was about the devotee
+              Jad Bharat.
+            </motion.p>
+
+            <motion.p
+              className="text-lg text-gray-700 mb-6"
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeInOut", delay: 0.9 }}
+            >
+              That lecture captivated me so deeply that I stayed for the entire
+              8-day Katha, absorbing every word. This experience transformed me,
+              changing my thinking and my life. I became a regular visitor to
+              the temple, attending every program, every weekend, and
+              eventually, in 1997, I took initiation from H.H. Radha Govind
+              Goswami Maharaj.
+            </motion.p>
+            <motion.p
+              className="text-lg text-gray-700 mb-6"
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeInOut", delay: 1.2 }}
+            >
+              My parents also embraced devotional service, and our family’s
+              commitment deepened over the years. When my mother passed away,
+              her last words to me were a reminder to take care of our
+              devotional service. Honoring her memory, I started hosting kirtans
+              and lectures at our home from 2018 to 2023, fulfilling her last
+              wish.
+            </motion.p>
+            <motion.p
+              className="text-lg text-gray-700 mb-6"
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeInOut", delay: 1.5 }}
+            >
+              In 2015, I began sharing my journey on Facebook, posting about
+              devotional service and spreading the teachings of Krishna. This
+              led to the founding of ISKCON Ahmednagar Media, which I managed
+              from 2016 to 2020, dedicating myself to the service at its peak.
+            </motion.p>
+            <motion.p
+              className="text-lg text-gray-700 mb-6"
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeInOut", delay: 1.8 }}
+            >
+              My daily routine starts at 3 AM with Japmala, followed by
+              exercise. I then create handcrafted posts on my phone before
+              heading to work. At my job, I often counsel colleagues on the
+              teachings of the Bhagavad Gita, distributing copies to those
+              interested. This allows me to balance my material responsibilities
+              with my spiritual mission, living a life dedicated to both worldly
+              duties and divine service.
+            </motion.p>
+
+            <motion.p
+              className="text-lg text-gray-700"
+              variants={{
+                hidden: { x: -100, opacity: 0 },
+                visible: { x: 0, opacity: 1 },
+              }}
+              transition={{ duration: 0.8, ease: "easeInOut", delay: 1.5 }}
+            >
+              <p className="text-lg text-gray-700 text-center">
+                This is the journey of Hari Govind Das—a life of devotion,
+                transformation, and unwavering dedication to the teachings of
+                Lord Krishna.
+              </p>
+            </motion.p>
+          </motion.div>
         </motion.div>
-    </div>
-    </div>
 
-
+        {/* Service and Outreach Section */}
+        <motion.div
+          className="max-w-6xl mx-auto p-4 bg-white shadow-lg rounded-lg mb-16"
+          initial="hidden"
+          animate="visible"
+          variants={slideInOut}
+          transition={{ duration: 0.8, ease: "easeInOut", delay: 1.5 }}
+        >
+          <div className="flex justify-center space-x-6 mt-6">
+            <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+              Connect with Us
+            </h2>
+            <Link to="/" className="text-grey-600 no-underline text-lg">
+              Explore Our Services
+            </Link>
+            <Link to="https://facebook.com" target="_blank">
+              <FaFacebook className="text-blue-600 text-3xl hover:text-blue-800 transition" />
+            </Link>
+            <Link to="https://whatsapp.com" target="_blank">
+              <FaWhatsapp className="text-green-600 text-3xl hover:text-green-800 transition" />
+            </Link>
+            <Link to="https://instagram.com" target="_blank">
+              <FaInstagram className="text-pink-600 text-3xl hover:text-pink-800 transition" />
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </div>
   );
 };
 

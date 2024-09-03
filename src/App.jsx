@@ -40,6 +40,7 @@ import BhagwatGita from './components/BhaktiKathas/BhagwatGita';
 import Bhagvatam from './components/BhaktiKathas/Bhagvatam';
 import Chaitanya from './components/BhaktiKathas/Chaitanya';
 import Prabhupadlila from './components/BhaktiKathas/Prabhupad-lila';
+import PrabhupadVani from './components/BhaktiKathas/Prabhupad-vani';
 
 //Kirtan&Lectures Files Nav Imports
 import KirtanLectures from './components/Kirtan&Lectures/KirtanLectures';
@@ -50,7 +51,7 @@ import FbPosts from './components/Kirtan&Lectures/FbPosts';
 // Quotes Files Nav Imports
 import Quotes from './components/Quotes/Quotes';
 import SrilaPrabhupad from './components/Quotes/SrilaPrabhupad';
-import PrabhupadVani from './components/BhaktiKathas/Prabhupad-vani';
+import RadhaGovindMah from './components/Quotes/RadhaGovindMah';
 
 
 const App = () => {
@@ -73,7 +74,7 @@ const App = () => {
             {/* Quotes Gallery Section */}
             <Route path="/quotes" element={<Quotes />} />
             <Route path="/quotes/srila-prabhupad" element={<SrilaPrabhupad />} />
-            
+            <Route path="/quotes/radha-govind-gosawmi-mah" element={<RadhaGovindMah />} />
 
             {/* Katha Nav Section and sub-menus */}
             <Route path="/katha" element={<Katha />} />
@@ -85,7 +86,7 @@ const App = () => {
             <Route path="/katha/prabhupad-vani" element={<PrabhupadVani />} />
           
 
-            Kirtan & Lectures Section
+            {/* Kirtan & Lectures Section */}
             <Route path="/kirtan&lectures" element={<KirtanLectures />} />
             <Route path="/kirtan/reels" element={<ReelContent />} />
             <Route path="/kirtan/lectures" element={<KirtanLectures />} />
