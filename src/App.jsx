@@ -47,6 +47,7 @@ import FbPosts from "./components/Kirtan&Lectures/FbPosts";
 // Quotes Files Nav Imports
 import SrilaPrabhupad from "./components/Quotes/SrilaPrabhupad";
 import RadhaGovindMah from "./components/Quotes/RadhaGovindMah";
+import RadhaNathmah from "./components/Quotes/RadhaNathmah";
 
 const App = () => {
   return (
@@ -77,6 +78,7 @@ const App = () => {
               path="/quotes/radha-govind-gosawmi-mah"
               element={<RadhaGovindMah />}
             />
+            <Route path="/quotes/radhanath-mah" element={<RadhaNathmah />} />
 
             {/* Katha Nav Section and sub-menus */}
             <Route path="/katha" element={<Katha />} />
@@ -103,8 +105,6 @@ const App = () => {
             />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/refund-policy" element={<Refund />} />
-
-            {/* Hero section */}
           </Routes>
         </main>
         <Footer />
