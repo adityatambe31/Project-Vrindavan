@@ -5,27 +5,24 @@ const Copyright = () => {
     <div className="bg-gray-900 text-gray-400">
       <div className="container mx-auto text-center justify-center">
         <p>
+          {" | "}
           <Link
-            to="/refund-policy"
+            to="/copyright-media-disclaimer"
+            target="_blank"
             className="text-gray-400 hover:text-gray-300 transition-colors duration-300"
           >
             ©2024 HG Media All rights Reserved.
           </Link>
-          {"  | "}
-          <Link
-            to="/privacy-policy"
-            className="text-gray-400 hover:text-gray-300 transition-colors duration-300"
-          >
-            Privacy Policy
-          </Link>
-
           {" | "}
+
           <Link
             to="/terms-and-conditions"
+            target="_blank"
             className="text-gray-400 hover:text-gray-300 transition-colors duration-300"
           >
             Terms and Conditions
           </Link>
+          {"  | "}
         </p>
       </div>
     </div>

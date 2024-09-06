@@ -20,8 +20,7 @@ import Contact from "./components/Contact/Contact";
 //Footer Files section Nav imports
 import Footer from "./components/Footer/Footer";
 import TermsAndConditions from "./components/Footer/TermsAndConditions";
-import PrivacyPolicy from "./components/Footer/PrivacyPolicy";
-import Refund from "./components/Footer/Refund";
+import CopyrightMediaDisclaimer from "./components/Footer/CopyrightMediaDisclaimer";
 import Copyright from "./components/Footer/Copyright";
 
 // Isckon file section Nav imports
@@ -43,12 +42,14 @@ import PrabhupadVani from "./components/BhaktiKathas/Prabhupad-vani";
 import KirtanLectures from "./components/Kirtan&Lectures/KirtanLectures";
 import ReelContent from "./components/Kirtan&Lectures/ReelContent";
 import FbPosts from "./components/Kirtan&Lectures/FbPosts";
+import Darshangallery from "./components/Kirtan&Lectures/DarshanGallery";
 
 // Quotes Files Nav Imports
 import SrilaPrabhupad from "./components/Quotes/SrilaPrabhupad";
 import RadhaGovindMah from "./components/Quotes/RadhaGovindMah";
 import RadhaNathmah from "./components/Quotes/RadhaNathmah";
 
+import Blogs from "./components/Blogs";
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen">
@@ -94,6 +95,13 @@ const App = () => {
             <Route path="/kirtan/reels" element={<ReelContent />} />
             <Route path="/kirtan/lectures" element={<KirtanLectures />} />
             <Route path="/kirtan/fbposts" element={<FbPosts />} />
+            <Route
+              path="/kirtan/darshan-gallery"
+              element={<Darshangallery />}
+            />
+
+            {/* Blog Section */}
+            <Route path="/blogs" element={<Blogs />} />
 
             {/* Contact Section */}
             <Route path="/contact" element={<Contact />} />
@@ -103,8 +111,10 @@ const App = () => {
               path="/terms-and-conditions"
               element={<TermsAndConditions />}
             />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/refund-policy" element={<Refund />} />
+            <Route
+              path="/copyright-media-disclaimer"
+              element={<CopyrightMediaDisclaimer />}
+            />
           </Routes>
         </main>
         <Footer />

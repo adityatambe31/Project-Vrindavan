@@ -13,7 +13,7 @@ import logo from "/src/assets/logo.png";
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-2">
-      <div className="container mx-auto flex flex-wrap justify-between items-start space-y-4 md:space-y-0">
+      <div className="container mx-auto flex flex-wrap justify-between items-start space-y-2 md:space-y-0">
         {/* Left Section */}
         <div className="w-full md:w-1/3 flex flex-col items-center md:items-start mb-4 md:mb-0 text-center md:text-left">
           <img src={logo} alt="Logo" className="w-24 mb-2 invert" />
@@ -61,7 +61,7 @@ const Footer = () => {
         <div className="w-full md:w-1/3 flex flex-col items-center md:items-end mb-4 md:mb-0">
           <div className="w-full flex flex-col md:flex-row justify-between">
             {/* Timing Section */}
-            <div className="flex flex-col mb-4 md:mb-0 md:w-1/2 px-4">
+            <div className="flex flex-col mb-4 md:mb-0 md:w-1/2 px-4 py-4">
               <h3 className="text-lg font-semibold mb-2 text-center md:text-left">
                 Timings
               </h3>
@@ -89,15 +89,14 @@ const Footer = () => {
 
             {/* Our Services Section */}
             <div className="flex flex-col md:w-1/2 px-10">
-              <h3 className="text-lg font-semibold mb-2  md:items-end ">
+              <h3 className="text-lg font-semibold mb-2  md:items-end py-4">
                 Our Services
               </h3>
               <ul className="text-gray-400 text-sm space-y-2">
                 <li className="flex items-center">
                   <FaCheck className="mr-2" />
                   <a
-                    href="/services/reel-content"
-                    target="_blank"
+                    href="/kirtan/reels"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors duration-300"
                   >
@@ -107,30 +106,18 @@ const Footer = () => {
                 <li className="flex items-center">
                   <FaCheck className="mr-2" />
                   <a
-                    href="/services/posts"
-                    target="_blank"
+                    href="/kirtan/FbPosts"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors duration-300"
                   >
                     Posts
                   </a>
                 </li>
+
                 <li className="flex items-center">
                   <FaCheck className="mr-2" />
                   <a
-                    href="/services/quotes"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors duration-300"
-                  >
-                    Quotes
-                  </a>
-                </li>
-                <li className="flex items-center">
-                  <FaCheck className="mr-2" />
-                  <a
-                    href="/media/darshan-gallery"
-                    target="_blank"
+                    href="/kirtan/darshan-gallery"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors duration-300"
                   >
@@ -140,8 +127,7 @@ const Footer = () => {
                 <li className="flex items-center">
                   <FaCheck className="mr-2" />
                   <a
-                    href="/media/kirtan-lectures"
-                    target="_blank"
+                    href="/kirtan/lectures"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors duration-300"
                   >
@@ -154,9 +140,9 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <div className="w-full md:w-1/3 flex flex-col items-center text-center md:items-center">
+        <div className="w-full md:w-1/3 flex flex-col items-center text-center md:items-center p-10">
           <h3 className="text-lg font-semibold  mb-2">Contact Us</h3>
-          <div className="flex items-center text-gray-400 text-m mb-2 py-5 ">
+          <div className="flex items-center text-gray-400 text-m mb-2 py-2 ">
             <FaPhoneAlt className="mr-1" />
             <a
               href="/contact"

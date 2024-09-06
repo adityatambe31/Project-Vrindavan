@@ -47,7 +47,7 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen pt-20 px-4 pb-16">
+    <div className="bg-slate-200 min-h-screen pt-20 px-4 pb-16">
       {/* Image Banner Section */}
       <div className="relative w-full max-w-6xl mx-auto mb-16 pt-20">
         <div className="relative overflow-hidden rounded-lg h-64 md:h-80 lg:h-96">
@@ -196,22 +196,25 @@ const Home = () => {
               >
                 Subscribe for Latest Updates
               </motion.h2>
-              <motion.p
-                className="text-lg mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+              <motion.blockquote
+                className="text-lg italic mb-4"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
               >
-                Stay connected with us for the latest updates, events, and
-                spiritual insights.
-              </motion.p>
+                “Chant the Holy name, Hare Krishna, Hare Krishna Krishna Krishna
+                Hare Hare.... Hare Rama Hare Rama Rama Rama Hare Hare”
+              </motion.blockquote>
               <motion.div
                 className="flex justify-center space-x-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
               >
-                <Link to="https://facebook.com" target="_blank">
+                <Link
+                  to="https://www.facebook.com/harekrishnaahilyanagar"
+                  target="_blank"
+                >
                   <motion.div
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
@@ -243,7 +246,7 @@ const Home = () => {
           </div>
         </motion.div>
 
-        {/* Explore Section */}
+        {/* Quotes Section */}
         <div className="mb-16 pt-10">
           <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
             <h2 className="text-2xl font-bold mb-4 md:mb-0">Quotes</h2>
@@ -268,14 +271,14 @@ const Home = () => {
                   exit={{ opacity: 0, x: -100 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  <Link to="/services">
+                  <Link to="/quotes/srila-prabhupad">
                     <img
                       src={`https://via.placeholder.com/150?text=Explore+${item}`}
                       alt={`Explore ${item}`}
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-4">
-                      <p className="text-lg font-semibold">Service {item}</p>
+                      <p className="text-lg font-semibold">Quotes {item}</p>
                     </div>
                   </Link>
                 </motion.div>
@@ -292,6 +295,66 @@ const Home = () => {
             <button
               onClick={() =>
                 exploreRef.current.scrollBy({ left: 200, behavior: "smooth" })
+              }
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
+            >
+              <FaChevronRight className="text-blue-600" />
+            </button>
+          </div>
+        </div>
+
+        {/* Bhakti-Slockas Section */}
+        <div className="mb-16">
+          <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold mb-4 md:mb-0">Kathas</h2>
+            <Link
+              to="/kirtan/lectures"
+              className="bg-blue-600 text-white py-2 px-4 rounded-full inline-block"
+            >
+              View All
+            </Link>
+          </div>
+          <div className="relative">
+            <div
+              className="flex overflow-x-scroll scrollbar-hidden md:overflow-hidden"
+              ref={kathaVaniRef}
+            >
+              {[1, 2, 3, 4].map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="flex-shrink-0 w-64 md:w-80 rounded-lg overflow-hidden bg-white shadow-md mx-2"
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  <Link to="/katha/bhagwat-gita">
+                    <img
+                      src={`https://via.placeholder.com/150?text=Service+${item}`}
+                      alt={`Service ${item}`}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-4">
+                      <p className="text-lg font-semibold">Kathas {item}</p>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+            <button
+              onClick={() =>
+                kathaVaniRef.current.scrollBy({
+                  left: -200,
+                  behavior: "smooth",
+                })
+              }
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
+            >
+              <FaChevronLeft className="text-blue-600" />
+            </button>
+            <button
+              onClick={() =>
+                kathaVaniRef.current.scrollBy({ left: 200, behavior: "smooth" })
               }
               className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
             >
@@ -334,7 +397,7 @@ const Home = () => {
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-4">
-                      <p className="text-lg font-semibold">Service {item}</p>
+                      <p className="text-lg font-semibold">Lectures {item}</p>
                     </div>
                   </Link>
                 </motion.div>
@@ -394,7 +457,7 @@ const Home = () => {
                       className="w-full h-48 object-cover"
                     />
                     <div className="p-4">
-                      <p className="text-lg font-semibold">Service {item}</p>
+                      <p className="text-lg font-semibold">Blog {item}</p>
                     </div>
                   </Link>
                 </motion.div>
@@ -421,8 +484,6 @@ const Home = () => {
             </button>
           </div>
         </div>
-
-        {/* Blogs Section */}
       </div>
     </div>
   );

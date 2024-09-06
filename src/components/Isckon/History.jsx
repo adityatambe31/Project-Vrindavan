@@ -76,7 +76,7 @@ const History = () => {
           animate="visible"
           className="space-y-6"
         >
-          <p className="text-lg md:text-m lg:text-2xl leading-relaxed text-gray-700">
+          <p className="text-lg md:text-m lg:text-lg leading-relaxed text-gray-700">
             The International Society for Krishna Consciousness (ISKCON) was
             founded in New York City in 1966 by His Divine Grace A.C.
             Bhaktivedanta Swami Prabhupada, who went to the western world with
@@ -89,7 +89,7 @@ const History = () => {
             based on the teachings of the Bhagawat Gita and Srimad Bhagwatam.
           </p>
 
-          <p className="text-lg md:text-m lg:text-2xl leading-relaxed text-gray-700">
+          <p className="text-lg md:text-m lg:text-lg leading-relaxed text-gray-700">
             The precepts and practices of ISKCON were taught and codified by Sri
             Chaitanya Mahaprabhu (1486-1532) along with His brother Nityananda
             Prabhu and six of His principal associates, the Goswamis of
@@ -97,14 +97,14 @@ const History = () => {
             Raghunatha Bhatta).
           </p>
 
-          <p className="text-lg md:text-m lg:text-2xl leading-relaxed text-gray-700">
+          <p className="text-lg md:text-m lg:text-lg leading-relaxed text-gray-700">
             The Bhagavad-gita, the principal scripture of The Hare Krishna
             Movement, is an eternal teaching, having Its written origins more
             than 5000-years ago, and before that time it was an oral tradition
             handed down from teacher to student from time immemorial.
           </p>
 
-          <p className="text-lg md:text-m lg:text-2xl leading-relaxed text-gray-700">
+          <p className="text-lg md:text-m lg:text-lg leading-relaxed text-gray-700">
             Sri Chaitanya gave a powerful impetus for a massive bhakti
             (devotional) movement throughout India. Under His direction hundreds
             of volumes on the philosophy of Krishna consciousness were compiled.

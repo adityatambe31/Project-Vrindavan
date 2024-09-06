@@ -1,8 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
-
-import { FaFacebook, FaWhatsapp, FaInstagram } from "react-icons/fa";
 import bgImg from "/src/assets/img-4.jpg";
 
 // Animation variants
@@ -104,7 +102,7 @@ const Hero = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <div className="relative overflow-hidden rounded-lg h-64 md:h-80 lg:h-96">
-          <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="relative z-10 flex items-center justify-center h-full mb-20">
             <h1 className="text-white text-4xl font-bold text-center p-4">
               Journey Of Hari Govind Das
             </h1>
@@ -113,12 +111,12 @@ const Hero = () => {
       </motion.div>
 
       {/* Journey of Hari Govind Das */}
-      <div className="bg-gray-100 rounded-lg shadow-lg p-10">
+      <div className="bg-gray-100 rounded-lg shadow-lg lg:p-40 justify-center sm:p-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="p-40"
+          className="p-10"
         >
           <h2 className="text-3xl font-bold mb-4">About Hari Govind Das </h2>
           <motion.div
@@ -235,41 +233,6 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Social Media Links */}
-      <footer className="bg-gray-200 py-6">
-        <div className="max-w-6xl mx-auto flex justify-between items-center px-4">
-          <div className="flex items-center space-x-4">
-            <a
-              href="https://www.facebook.com/HariGovindDas"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-blue-600 transition"
-            >
-              <FaFacebook size={24} />
-            </a>
-            <a
-              href="https://wa.me/1234567890"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-green-600 transition"
-            >
-              <FaWhatsapp size={24} />
-            </a>
-            <a
-              href="https://www.instagram.com/HariGovindDas"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-pink-600 transition"
-            >
-              <FaInstagram size={24} />
-            </a>
-          </div>
-          <p className="text-gray-600 text-sm">
-            &copy; 2024 Hari Govind Das. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };
