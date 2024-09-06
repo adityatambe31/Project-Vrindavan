@@ -49,7 +49,9 @@ import SrilaPrabhupad from "./components/Quotes/SrilaPrabhupad";
 import RadhaGovindMah from "./components/Quotes/RadhaGovindMah";
 import RadhaNathmah from "./components/Quotes/RadhaNathmah";
 
-import Blogs from "./components/Blogs";
+// Blog Files Nav Imports
+import Blogs from "./components/Blogs/Blogs";
+
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen">

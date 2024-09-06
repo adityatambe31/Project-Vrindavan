@@ -7,13 +7,13 @@ import {
 } from "react-icons/fa";
 
 // Import the image of the Bhagavad Gita
-import bookPic from "/src/assets/bhagwat.png";
+import bookPic from "/src/assets/QuotesImg/bhagwat.png";
 
 // Import motion component from the 'framer-motion' library for animations
 import { motion } from "framer-motion";
 
 // Import background image for the paper texture
-import bgPaper from "/src/assets/bg-paper.jpg";
+import bgPaper from "/src/assets/QuotesImg/bg-paper.jpg";
 
 // Import 'useRef' hook from React for referencing DOM elements
 import { useRef } from "react";
@@ -41,7 +41,7 @@ const slocks = [
 ];
 
 // Path to the parallax image
-const parallaxImage = "/src/assets/P1.jpeg";
+const parallaxImage = "/src/assets/Prabhupad-Img/P1.jpeg";
 
 // Main functional component for the Bhagavad Gita section
 const SrilaPrabhupad = () => {

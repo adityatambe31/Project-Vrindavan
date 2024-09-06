@@ -4,9 +4,9 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
-import bookPic from "/src/assets/bhagwat.png";
+import bookPic from "/src/assets/QuotesImg/bhagwat.png";
 import { motion } from "framer-motion";
-import bgPaper from "/src/assets/bg-paper.jpg";
+import bgPaper from "/src/assets/QuotesImg/bg-paper.jpg";
 import { useRef } from "react";
 
 const container = (delay) => ({

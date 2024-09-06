@@ -7,14 +7,14 @@ import {
 } from "react-icons/fa";
 
 // Importing an image of Radha-Govind from the assets directory
-import bookPic from "/src/assets/Radha-Nath-Maharaj.jpg";
-import bg from "/src/assets/Radha-Nath-Bg.jpg";
+import bookPic from "/src/assets/RadhaNathMahj/Radha-Nath-Maharaj.jpg";
+import bg from "/src/assets/RadhaNathMahj/Radha-Nath-Bg.jpg";
 
 // Importing motion for animations from the framer-motion library
 import { motion } from "framer-motion";
 
 // Importing a background image of paper from the assets directory
-import bgPaper from "/src/assets/bg-paper.jpg";
+import bgPaper from "/src/assets/QuotesImg/bg-paper.jpg";
 
 // Importing the useRef hook for creating a reference to a DOM element
 import { useRef } from "react";

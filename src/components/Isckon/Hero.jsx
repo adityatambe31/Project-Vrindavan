@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
-import bgImg from "/src/assets/img-4.jpg";
+import bgImg from "/src/assets/hero/img-4.jpg";
 
 // Animation variants
 const fadeInOut = {

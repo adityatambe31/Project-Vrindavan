@@ -9,8 +9,8 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
-import headingImage from "../assets/harigovinddas-home.png";
-import AboutImage from "../assets/about-hari-govind-das.png";
+import headingImage from "../assets/Hero/harigovinddas-home.png";
+import AboutImage from "../assets/Hero/about-hari-govind-das.png";
 
 // Image URLs for the slider and background
 const images = [
@@ -19,7 +19,7 @@ const images = [
   "https://scontent-ord5-1.xx.fbcdn.net/v/t1.6435-9/33788802_1646381012111968_5595745785665814528_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=GACvL0j9eY8Q7kNvgGV-RGo&_nc_ht=scontent-ord5-1.xx&oh=00_AYDn-e2EUT6g--PoQ1jaOk8KtvJnHYdz20x1IE8oo6-kdQ&oe=66F86946",
 ];
 
-const parallaxImage = "/src/assets/img-5.png";
+const parallaxImage = "/src/assets/Hero/img-5.png";
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
