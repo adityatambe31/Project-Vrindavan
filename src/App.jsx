@@ -9,9 +9,6 @@ import Hero from "./components/Isckon/Hero";
 //Home Files section Nav imports
 import Home from "./components/Home";
 
-//Darshan Files section Nav imports
-import DarshanGallery from "./components/DarshanGallery/DarshanGallery";
-
 //import Blog from "./components/Blogs";
 
 //Contact Files section Nav imports
@@ -25,13 +22,9 @@ import Copyright from "./components/Footer/Copyright";
 
 // Isckon file section Nav imports
 import AboutUS from "./components/Isckon/AboutUs";
-import Founder from "./components/Isckon/Founder";
-import History from "./components/Isckon/History";
-import WhyKrishnaConsciousness from "./components/Isckon/why-krishna-consciousness";
-import Philosophy from "./components/Isckon/philosophy";
 
 // Bhakti-Katha Files Nav Imports
-import Katha from "./components/BhaktiKathas/Kathas";
+import Katha from "./components/BhaktiKathas/GridKathas";
 import BhagwatGita from "./components/BhaktiKathas/BhagwatGita";
 import Bhagvatam from "./components/BhaktiKathas/Bhagvatam";
 import Chaitanya from "./components/BhaktiKathas/Chaitanya";
@@ -39,19 +32,22 @@ import Prabhupadlila from "./components/BhaktiKathas/Prabhupad-lila";
 import PrabhupadVani from "./components/BhaktiKathas/Prabhupad-vani";
 
 //Kirtan&Lectures Files Nav Imports
+//import ReelContent from "./components/Kirtan&Lectures/Reelcontent";
+
 import KirtanLectures from "./components/Kirtan&Lectures/KirtanLectures";
-import ReelContent from "./components/Kirtan&Lectures/ReelContent";
 import FbPosts from "./components/Kirtan&Lectures/FbPosts";
 import Darshangallery from "./components/Kirtan&Lectures/DarshanGallery";
 
 // Quotes Files Nav Imports
-import SrilaPrabhupad from "./components/Quotes/SrilaPrabhupad";
 import RadhaGovindMah from "./components/Quotes/RadhaGovindMah";
 import RadhaNathmah from "./components/Quotes/RadhaNathmah";
 
 // Blog Files Nav Imports
 import Blogs from "./components/Blogs/Blogs";
 
+//Grid Section Imports
+import GridQuotesSection from "./components/Quotes/GridQuotesSection";
+import GridKathas from "./components/BhaktiKathas/GridKathas";
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen">
@@ -64,19 +60,9 @@ const App = () => {
             {/* Isckon Nav Section */}
             <Route path="/about/hero" element={<Hero />} />
             <Route path="about/about-us" element={<AboutUS />} />
-            <Route path="about/founder" element={<Founder />} />
-            <Route
-              path="about/why-krishna-consciousness"
-              element={<WhyKrishnaConsciousness />}
-            />
-            <Route path="about/history" element={<History />} />
-            <Route path="about/philosophy" element={<Philosophy />} />
 
             {/* Quotes Gallery Section */}
-            <Route
-              path="/quotes/srila-prabhupad"
-              element={<SrilaPrabhupad />}
-            />
+
             <Route
               path="/quotes/radha-govind-gosawmi-mah"
               element={<RadhaGovindMah />}
@@ -85,7 +71,6 @@ const App = () => {
 
             {/* Katha Nav Section and sub-menus */}
             <Route path="/katha" element={<Katha />} />
-            <Route path="/katha/darshan-gallery" element={<DarshanGallery />} />
             <Route path="/katha/bhagwat-gita" element={<BhagwatGita />} />
             <Route path="/katha/bhagvatam" element={<Bhagvatam />} />
             <Route path="/katha/chaitanya" element={<Chaitanya />} />
@@ -94,7 +79,7 @@ const App = () => {
 
             {/* Kirtan & Lectures Section */}
             <Route path="/kirtan&lectures" element={<KirtanLectures />} />
-            <Route path="/kirtan/reels" element={<ReelContent />} />
+            {/* <Route path="/kirtan/reels" element={<ReelContent />} /> */}
             <Route path="/kirtan/lectures" element={<KirtanLectures />} />
             <Route path="/kirtan/fbposts" element={<FbPosts />} />
             <Route
@@ -116,6 +101,16 @@ const App = () => {
             <Route
               path="/copyright-media-disclaimer"
               element={<CopyrightMediaDisclaimer />}
+            />
+
+            {/* Grid Section Routing Imports */}
+            <Route
+              path="/quotes/grid-quotes-section"
+              element={<GridQuotesSection />}
+            />
+            <Route
+              path="/kathas/grid-kathas-section"
+              element={<GridKathas />}
             />
           </Routes>
         </main>

@@ -7,8 +7,7 @@ import {
 } from "react-icons/fa";
 
 // Importing an image of Radha-Govind from the assets directory
-import bookPic from "/src/assets/RadhaNathMahj/Radha-Nath-Maharaj.jpg";
-import bg from "/src/assets/RadhaNathMahj/Radha-Nath-Bg.jpg";
+import bookPic from "/src/assets/QuotesGridPage/RadhaNathMahj/Radha-Nath-Maharaj.jpg";
 
 // Importing motion for animations from the framer-motion library
 import { motion } from "framer-motion";
@@ -47,10 +46,7 @@ const RadhaNathmah = () => {
   const slockRef = useRef(null);
 
   return (
-    <div
-      className="p-10 bg-no-repeat bg-cover bg-center h-auto"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+    <div className="p-10 bg-no-repeat bg-cover bg-center h-auto">
       {/* Slider Section */}
       <div className="p-20 mt-10 relative">
         <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">

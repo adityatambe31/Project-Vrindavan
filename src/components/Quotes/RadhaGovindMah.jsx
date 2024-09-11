@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 
 // Importing an image of Radha-Govind from the assets directory
-import bookPic from "/src/assets/RadhaGovindMah/Radha-Govind.png";
+import bookPic from "/src/assets/Radha-Govind.png";
 
 // Importing motion for animations from the framer-motion library
 import { motion } from "framer-motion";

@@ -1,39 +1,66 @@
 import { motion } from "framer-motion";
+import content from "/src/constants/darshanGallery";
 
-const photos = [
-  {
-    id: 1,
-    url: "https://scontent.fykz1-1.fna.fbcdn.net/v/t39.30808-6/457016149_926315756206751_6026729787020638588_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Iu5XPtzML0QQ7kNvgHSJexz&_nc_ht=scontent.fykz1-1.fna&oh=00_AYCEDaKOS68XRaG1LtyQ8yXyJUPvIsTtHXBwbwTHvT5Xtw&oe=66D2DDEE",
-    name: "Photo 1",
+// Grid Img Settings
+const containerVariant = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      when: "beforeChildren",
+      staggerChildren: 0.3,
+    },
   },
-];
+};
+
+const itemVariant = {
+  hidden: { scale: 0.9, opacity: 0 },
+  visible: { scale: 1, opacity: 1 },
+  exit: { scale: 0.9, opacity: 0 },
+};
+
+const hoverVariant = {
+  hover: { scale: 1.05, transition: { duration: 0.3 } },
+};
+
 const DarshanGallery = () => {
   return (
-    <div className="bg-gray-100 min-h-screen pt-16 px-4 pb-16">
-      <h1 className="text-2xl font-bold mb-6 text-center pt-20">
+    <div className="bg-slate-300 min-h-screen pt-16 px-4 pb-20">
+      <h1 className="text-2xl font-bold mb-6 text-center pt-40">
         Darshan Gallery
       </h1>
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {photos.map((photo) => (
+      <motion.div
+        variants={containerVariant}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 p-2"
+      >
+        {content.map((item, index) => (
+          <motion.a
+            key={index}
+            className="relative h-64 rounded-lg overflow-hidden shadow-lg cursor-pointer transition-transform duration-300"
+          >
             <motion.div
-              key={photo.id}
-              className="bg-white p-4 rounded-lg shadow-md"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              variants={itemVariant}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 100 }}
+              className="relative h-full w-full"
+              style={{
+                backgroundImage: `url(${item.imageUrl})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
-              <img
-                src={photo.url}
-                alt={photo.name}
-                className="w-full h-auto rounded-lg"
-              />
-              <p className="mt-2 text-center font-semibold">{photo.name}</p>
+              <motion.div
+                variants={hoverVariant}
+                className="absolute inset-0 flex justify-center items-center bg-gradient-to-t from-black to-transparent"
+              ></motion.div>
             </motion.div>
-          ))}
-        </div>
-      </div>
+          </motion.a>
+        ))}
+      </motion.div>
     </div>
   );
 };

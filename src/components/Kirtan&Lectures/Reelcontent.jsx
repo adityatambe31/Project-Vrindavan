@@ -1,50 +1,60 @@
-import { motion } from 'framer-motion';
-
-const photos = [
-  { id: 1, url: 'https://fb.watch/ucScJm267n/', name: 'Photo 1' },
-  { id: 2, url: 'https://www.facebook.com/reel/1038307231068429', name: 'Photo 2' },
-  { id: 3, url: 'https://www.facebook.com/reel/1051938719869359', name: 'Photo 3' },
-  { id: 4, url: 'https://www.facebook.com/reel/1038307231068429', name: 'Photo 4' },
-  // Add more photos here
-];
-
-const getFacebookEmbedUrl = (url) => {
-  // Extract the video ID from the URL
-  const videoIdMatch = url.match(/(?:video|reel)\/(\d+)/);
-  if (videoIdMatch) {
-    const videoId = videoIdMatch[1];
-    return `https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/facebook/videos/${videoId}/`;
-  }
-  return '';
-};
+import { useState } from "react";
+import { motion } from "framer-motion"; // For animations
+import reels from "/src/constants/reel.js"; // Correct import path
 
 const ReelContent = () => {
+  // State to track which reel is playing
+  const [playingReel, setPlayingReel] = useState(null);
+
   return (
-    <div className="bg-gray-100 min-h-screen pt-16 px-4 pb-16">
-      <h1 className="text-2xl font-bold mb-6 text-center pt-20">Reel Content</h1>
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {photos.map((photo) => (
+    <div className="bg-stone-300 ">
+      <div className="container mx-auto px-4 py-10 pt-40">
+        {/* Page heading with animation */}
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-3xl font-bold text-center mb-8 pt-20"
+        >
+          Reels 🛕🙏
+        </motion.h1>
+
+        {/* Reel cards section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {reels.map((reel) => (
+            // Each card is animated using framer-motion
             <motion.div
-              key={photo.id}
-              className="bg-white p-4 rounded-lg shadow-md"
+              key={reel.id}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-lg shadow-md p-6 cursor-pointer"
+              onClick={() =>
+                setPlayingReel(playingReel === reel.id ? null : reel.id)
+              }
             >
-              <div className="w-full h-60">
-                <iframe
-                  src={getFacebookEmbedUrl(photo.url)}
+              {/* Reel player (loaded only when clicked) */}
+              {playingReel === reel.id ? (
+                <video
                   width="100%"
                   height="100%"
-                  style={{ border: 'none' }}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title={photo.name}
+                  controls
+                  src={`/src/constants/Reels/${reel.link}`}
                 />
-              </div>
-              <p className="mt-2 text-center font-semibold">{photo.name}</p>
+              ) : (
+                <div className="h-48 bg-gray-200 flex items-center justify-center">
+                  <img
+                    src="/src/assets/play.png"
+                    alt="Play"
+                    className="w-1/3 mx-auto"
+                  />
+                </div>
+              )}
+
+              {/* Reel name */}
+              <h2 className="text-xl font-semibold text-center mt-4">
+                {reel.name}
+              </h2>
             </motion.div>
           ))}
         </div>

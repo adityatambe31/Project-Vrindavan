@@ -78,7 +78,7 @@ const AboutUS = () => {
           animate="visible"
           className="text-2xl font-bold mb-8 text-left pt-20"
         >
-          About Us
+          About ISCKON
         </motion.h1>
 
         {/* Content */}

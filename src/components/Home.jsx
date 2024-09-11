@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -14,17 +14,16 @@ import AboutImage from "../assets/Hero/about-hari-govind-das.png";
 
 // Image URLs for the slider and background
 const images = [
-  "https://scontent-ord5-1.xx.fbcdn.net/v/t1.6435-9/67496136_2266851236731606_3034995037210411008_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=pXngMZRN2JsQ7kNvgGEd1MN&_nc_ht=scontent-ord5-1.xx&_nc_gid=AXF5WA5raZ45E4B7_h_4gCU&oh=00_AYA79do1n7xTYrOtLc5sf8ovm2w0ZK_MnD5WVA1ZVtA6eg&oe=66F86266",
-  "https://scontent-ord5-2.xx.fbcdn.net/v/t1.6435-9/67272415_2270638099686253_5135201484807340032_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=v8oVKnz0Hw0Q7kNvgHdevmS&_nc_ht=scontent-ord5-2.xx&oh=00_AYD8v8TRJTzJHMhVicFx86_peCbOi26qkGdEK4L8XYglZA&oe=66F88091",
-  "https://scontent-ord5-1.xx.fbcdn.net/v/t1.6435-9/33788802_1646381012111968_5595745785665814528_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=GACvL0j9eY8Q7kNvgGV-RGo&_nc_ht=scontent-ord5-1.xx&oh=00_AYDn-e2EUT6g--PoQ1jaOk8KtvJnHYdz20x1IE8oo6-kdQ&oe=66F86946",
+  "/src/assets/BannerImg/BG1.jpg",
+  "/src/assets/BannerImg/BG2.jpg",
+  "/src/assets/BannerImg/BG3.jpg",
+  "/src/assets/BannerImg/BG4.jpg",
 ];
 
 const parallaxImage = "/src/assets/Hero/img-5.png";
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const exploreRef = useRef(null);
-  const kathaVaniRef = useRef(null);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -46,17 +45,63 @@ const Home = () => {
     visible: { x: 0, opacity: 1, transition: { duration: 1 } },
   };
 
+  //Grid Img Settings
+  const containerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        when: "beforeChildren",
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariant = {
+    hidden: { scale: 0.9, opacity: 0 },
+    visible: { scale: 1, opacity: 1 },
+    exit: { scale: 0.9, opacity: 0 },
+  };
+
+  const hoverVariant = {
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
+  };
+
+  const content = [
+    {
+      name: "Quotes",
+      imageUrl: "/src/assets/DarshanGallery/DG1.jpeg",
+      link: "/quotes/grid-quotes-section",
+    },
+    {
+      name: "Kathas",
+      imageUrl: "/src/assets/DarshanGallery/DG2.jpg",
+      link: "/kathas/grid-kathas-section",
+    },
+    {
+      name: "Kirtan & Lectures",
+      imageUrl: "/src/assets/DarshanGallery/DG3.jpg",
+      link: "/kirtan/lectures",
+    },
+    {
+      name: "Darshan Gallery",
+      imageUrl: "/src/assets/DarshanGallery/DG4.jpg",
+      link: "/kirtan/darshan-gallery",
+    },
+  ];
+
   return (
-    <div className="bg-slate-200 min-h-screen pt-20 px-4 pb-16">
+    <div className="bg-slate-300 min-h-screen pt-20 px-4 pb-16">
       {/* Image Banner Section */}
-      <div className="relative w-full max-w-6xl mx-auto mb-16 pt-20">
+      <div className="relative w-full max-w-6xl mx-auto mb-2 pt-20">
         <div className="relative overflow-hidden rounded-lg h-64 md:h-80 lg:h-96">
           <AnimatePresence initial={false}>
             <motion.img
               key={currentIndex}
               src={images[currentIndex]}
               alt={`Slide ${currentIndex + 1}`}
-              className="w-full h-auto object-fit: cover"
+              className="w-auto h-100 object-fit: cover"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
@@ -91,20 +136,20 @@ const Home = () => {
         </div>
 
         {/* Add padding between sections */}
-        <div className="py-8"></div>
+        <div className="py-6"></div>
 
         {/* Parallax Background - About Hari Govind Section */}
         <motion.div
-          className="relative w-full h-96 bg-fixed bg-center bg-cover mb-16 rounded-lg overflow-hidden"
+          className="relative w-full h-72 md:h-96 bg-fixed bg-center bg-cover mb-6 rounded-lg overflow-hidden"
           style={{ backgroundImage: `url(${parallaxImage})` }}
         >
           <div className="absolute inset-0 bg-black opacity-30"></div>
 
           {/* Animated Content */}
-          <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="relative z-10 flex items-center justify-center h-full px-4">
             <a href="/" className="no-underline">
               <motion.h1
-                className="text-white text-4xl font-bold"
+                className="text-white text-3xl md:text-4xl font-bold text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
@@ -112,7 +157,7 @@ const Home = () => {
                 <motion.img
                   src={headingImage}
                   alt="Heading Text"
-                  className="w-2/3 h-auto p-10 mx-auto"
+                  className="w-3/4 md:w-2/3 h-auto p-4 md:p-10 mx-auto"
                   initial={{ scale: 0.8 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
@@ -122,44 +167,45 @@ const Home = () => {
           </div>
         </motion.div>
 
+        {/* About Section */}
         <motion.div
-          className="relative w-full h-96 bg-fixed bg-center bg-cover mb-16 rounded-lg overflow-hidden"
+          className="relative w-full h-72 md:h-96 bg-fixed bg-center bg-cover mb-6 rounded-lg overflow-hidden"
           style={{ backgroundImage: `url(${parallaxImage})` }}
         >
           <div className="absolute inset-0 bg-black opacity-30"></div>
 
           {/* Content Animation */}
-          <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="relative z-10 flex flex-col items-center justify-center h-full px-2">
             <div className="max-w-6xl mx-auto text-center text-white">
               <motion.h2
-                className="text-3xl font-bold mb-4"
+                className="text-2xl md:text-3xl font-bold "
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
               >
                 <img
                   src={AboutImage}
-                  alt="Heading Text"
-                  className="w-1/2 h-auto p-10 mx-auto"
+                  alt="About Text"
+                  className="w-3/4 md:w-1/2 h-auto p-4 md:p-10 mx-auto"
                 />
               </motion.h2>
 
               {/* Quote Section */}
               <motion.div
-                className="relative w-full max-w-3xl mx-auto mb-16 px-4 md:px-8 lg:px-16 py-8 bg-black bg-opacity-40 rounded-lg"
+                className="relative w-full max-w-3xl mx-auto mb-16 px-4 md:px-8 lg:px-20 py-8 bg-black bg-opacity-40 rounded-lg"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
               >
                 <div className="text-center text-white">
                   <motion.blockquote
-                    className="text-lg italic mb-4"
+                    className="text-lg md:text-xl italic mb-4"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
                   >
                     “From restless youth to devoted servant, my life transformed
-                    by the teachings of Lord Krishna.” -Hari Govind Das..
+                    by the teachings of Lord Krishna.” - Hari Govind Das..
                   </motion.blockquote>
 
                   <motion.a
@@ -179,34 +225,34 @@ const Home = () => {
 
         {/* Parallax Background - Subscribe Section */}
         <motion.div
-          className="relative w-full h-96 bg-fixed bg-center bg-cover mb-16 rounded-lg overflow-hidden"
+          className="relative w-full h-72 md:h-96 bg-fixed bg-center bg-cover mb-6 rounded-lg overflow-hidden"
           style={{ backgroundImage: `url(${parallaxImage})` }}
           initial="hidden"
           animate="visible"
           variants={slideIn}
         >
           <div className="absolute inset-0 bg-black opacity-30"></div>
-          <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
             <div className="max-w-6xl mx-auto text-center text-white">
               <motion.h2
-                className="text-3xl font-bold mb-4"
+                className="text-2xl md:text-3xl font-bold mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
               >
-                Subscribe for Latest Updates
+                Hari Bol Hari Krishna 🙏
               </motion.h2>
               <motion.blockquote
-                className="text-lg italic mb-4"
+                className="text-lg md:text-xl italic mb-6"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
               >
-                “Chant the Holy name, Hare Krishna, Hare Krishna Krishna Krishna
-                Hare Hare.... Hare Rama Hare Rama Rama Rama Hare Hare”
+                “Chant Hare Krishna, Hare Krishna Krishna Krishna Hare Hare....
+                <br /> ....Hare Rama Hare Rama Rama Rama Hare Hare”
               </motion.blockquote>
               <motion.div
-                className="flex justify-center space-x-10"
+                className="flex justify-center space-x-6 md:space-x-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
@@ -220,7 +266,7 @@ const Home = () => {
                     whileTap={{ scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <FaFacebook className="text-blue-300 text-3xl" />
+                    <FaFacebook className="text-blue-300 text-2xl md:text-3xl" />
                   </motion.div>
                 </Link>
                 <Link to="https://whatsapp.com" target="_blank">
@@ -229,7 +275,7 @@ const Home = () => {
                     whileTap={{ scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <FaWhatsapp className="text-green-300 text-3xl" />
+                    <FaWhatsapp className="text-green-300 text-2xl md:text-3xl" />
                   </motion.div>
                 </Link>
                 <Link to="https://instagram.com" target="_blank">
@@ -238,7 +284,7 @@ const Home = () => {
                     whileTap={{ scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <FaInstagram className="text-pink-300 text-3xl" />
+                    <FaInstagram className="text-pink-300 text-2xl md:text-3xl" />
                   </motion.div>
                 </Link>
               </motion.div>
@@ -246,244 +292,48 @@ const Home = () => {
           </div>
         </motion.div>
 
-        {/* Quotes Section */}
-        <div className="mb-16 pt-10">
-          <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold mb-4 md:mb-0">Quotes</h2>
-            <Link
-              to="/quotes/srila-prabhupad"
-              className="bg-blue-600 text-white py-2 px-4 rounded-full inline-block"
+        {/* Gird View  */}
+        <motion.div
+          variants={containerVariant}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
+          {content.map((item, index) => (
+            <motion.a
+              key={index}
+              href={item.link}
+              rel="noopener noreferrer"
+              className="relative h-64 rounded-lg overflow-hidden shadow-lg cursor-pointer transition-transform duration-300"
             >
-              View All
-            </Link>
-          </div>
-          <div className="relative">
-            <div
-              className="flex overflow-x-scroll scrollbar-hidden md:overflow-hidden"
-              ref={exploreRef}
-            >
-              {[1, 2, 3, 4].map((item, index) => (
+              <motion.div
+                variants={itemVariant}
+                whileHover={{ scale: 1.05 }} // Zoom in effect on hover
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative h-full w-full"
+                style={{
+                  backgroundImage: `url(${item.imageUrl})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
                 <motion.div
-                  key={index}
-                  className="flex-shrink-0 w-64 md:w-80 rounded-lg overflow-hidden bg-white shadow-md mx-2"
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  variants={hoverVariant}
+                  className="absolute inset-0 flex justify-center items-center bg-gradient-to-t from-black to-transparent"
                 >
-                  <Link to="/quotes/srila-prabhupad">
-                    <img
-                      src={`https://via.placeholder.com/150?text=Explore+${item}`}
-                      alt={`Explore ${item}`}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                      <p className="text-lg font-semibold">Quotes {item}</p>
-                    </div>
-                  </Link>
+                  <motion.span
+                    className="text-white text-xl font-semibold text-center px-4 py-2 bg-opacity-80 rounded-lg shadow-lg"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    {item.name}
+                  </motion.span>
                 </motion.div>
-              ))}
-            </div>
-            <button
-              onClick={() =>
-                exploreRef.current.scrollBy({ left: -200, behavior: "smooth" })
-              }
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
-            >
-              <FaChevronLeft className="text-blue-600" />
-            </button>
-            <button
-              onClick={() =>
-                exploreRef.current.scrollBy({ left: 200, behavior: "smooth" })
-              }
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
-            >
-              <FaChevronRight className="text-blue-600" />
-            </button>
-          </div>
-        </div>
-
-        {/* Bhakti-Slockas Section */}
-        <div className="mb-16">
-          <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold mb-4 md:mb-0">Kathas</h2>
-            <Link
-              to="/kirtan/lectures"
-              className="bg-blue-600 text-white py-2 px-4 rounded-full inline-block"
-            >
-              View All
-            </Link>
-          </div>
-          <div className="relative">
-            <div
-              className="flex overflow-x-scroll scrollbar-hidden md:overflow-hidden"
-              ref={kathaVaniRef}
-            >
-              {[1, 2, 3, 4].map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="flex-shrink-0 w-64 md:w-80 rounded-lg overflow-hidden bg-white shadow-md mx-2"
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                  <Link to="/katha/bhagwat-gita">
-                    <img
-                      src={`https://via.placeholder.com/150?text=Service+${item}`}
-                      alt={`Service ${item}`}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                      <p className="text-lg font-semibold">Kathas {item}</p>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-            <button
-              onClick={() =>
-                kathaVaniRef.current.scrollBy({
-                  left: -200,
-                  behavior: "smooth",
-                })
-              }
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
-            >
-              <FaChevronLeft className="text-blue-600" />
-            </button>
-            <button
-              onClick={() =>
-                kathaVaniRef.current.scrollBy({ left: 200, behavior: "smooth" })
-              }
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
-            >
-              <FaChevronRight className="text-blue-600" />
-            </button>
-          </div>
-        </div>
-
-        {/* Kirtan &Lectures Reel Section */}
-        <div className="mb-16">
-          <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold mb-4 md:mb-0">
-              Kirtan & Lectures
-            </h2>
-            <Link
-              to="/kirtan/lectures"
-              className="bg-blue-600 text-white py-2 px-4 rounded-full inline-block"
-            >
-              View All
-            </Link>
-          </div>
-          <div className="relative">
-            <div
-              className="flex overflow-x-scroll scrollbar-hidden md:overflow-hidden"
-              ref={kathaVaniRef}
-            >
-              {[1, 2, 3, 4].map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="flex-shrink-0 w-64 md:w-80 rounded-lg overflow-hidden bg-white shadow-md mx-2"
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                  <Link to="/services">
-                    <img
-                      src={`https://via.placeholder.com/150?text=Service+${item}`}
-                      alt={`Service ${item}`}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                      <p className="text-lg font-semibold">Lectures {item}</p>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-            <button
-              onClick={() =>
-                kathaVaniRef.current.scrollBy({
-                  left: -200,
-                  behavior: "smooth",
-                })
-              }
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
-            >
-              <FaChevronLeft className="text-blue-600" />
-            </button>
-            <button
-              onClick={() =>
-                kathaVaniRef.current.scrollBy({ left: 200, behavior: "smooth" })
-              }
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
-            >
-              <FaChevronRight className="text-blue-600" />
-            </button>
-          </div>
-        </div>
-
-        {/* Blog Section */}
-        <div className="mb-16">
-          <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold mb-4 md:mb-0">Blog</h2>
-            <Link
-              to="/kirtan/lectures"
-              className="bg-blue-600 text-white py-2 px-4 rounded-full inline-block"
-            >
-              View All
-            </Link>
-          </div>
-          <div className="relative">
-            <div
-              className="flex overflow-x-scroll scrollbar-hidden md:overflow-hidden"
-              ref={kathaVaniRef}
-            >
-              {[1, 2, 3, 4].map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="flex-shrink-0 w-64 md:w-80 rounded-lg overflow-hidden bg-white shadow-md mx-2"
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                  <Link to="/services">
-                    <img
-                      src={`https://via.placeholder.com/150?text=Service+${item}`}
-                      alt={`Service ${item}`}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                      <p className="text-lg font-semibold">Blog {item}</p>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-            <button
-              onClick={() =>
-                kathaVaniRef.current.scrollBy({
-                  left: -200,
-                  behavior: "smooth",
-                })
-              }
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
-            >
-              <FaChevronLeft className="text-blue-600" />
-            </button>
-            <button
-              onClick={() =>
-                kathaVaniRef.current.scrollBy({ left: 200, behavior: "smooth" })
-              }
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200"
-            >
-              <FaChevronRight className="text-blue-600" />
-            </button>
-          </div>
-        </div>
+              </motion.div>
+            </motion.a>
+          ))}
+        </motion.div>
       </div>
     </div>
   );
