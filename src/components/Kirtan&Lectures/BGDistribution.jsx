@@ -1,27 +1,17 @@
 import { motion } from "framer-motion";
+import photos from "/src/constants/photos.js";
 
-const photos = [
-  {
-    id: 1,
-    url: "/src/assets/Book-Distribution/BD1.jpg",
-  },
-  {
-    id: 2,
-    url: "/src/assets/Book-Distribution/BD2.jpg",
-  },
-  {
-    id: 3,
-    url: "/src/assets/Book-Distribution/BD3.jpg",
-  },
-
-  // Add more photos here
-];
-const FbPosts = () => {
+const BGDistribution = () => {
   return (
     <div className="bg-gray-300 min-h-screen pt-16 px-4 pb-16">
-      <h1 className="text-2xl font-bold mb-6 text-center pt-40">
-        Book-Distribution
-      </h1>
+      <motion.h1
+        className="text-2xl font-bold mb-6 text-center pt-40"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+      >
+        📜 Distribute the Divine Knowledge of Bhagavad Gita 🙏
+      </motion.h1>
       <div className="container mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 object-fit:cover">
           {photos.map((photo) => (
@@ -47,4 +37,4 @@ const FbPosts = () => {
   );
 };
 
-export default FbPosts;
+export default BGDistribution;

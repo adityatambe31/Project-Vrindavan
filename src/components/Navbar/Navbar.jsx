@@ -113,12 +113,12 @@ const Navbar = () => {
           : "transparent",
         fontFamily: "Fira Sans",
       }}
-      className="fixed top-0 inset-x-0 mx-auto flex items-center justify-between py-2  shadow-md w-full max-w-6xl rounded-b-full md:px-12 transition-all duration-500"
+      className="fixed top-0 inset-x-0 mx-auto flex items-center justify-between shadow-md w-full max-w-6xl rounded-b-full md:px-10 transition-all duration-500"
     >
       <div className="flex items-center z-10">
         <Link
           to="/"
-          className="px-2 py-2 text-gray-800 rounded-full transition-colors duration-300 flex items-center"
+          className="px-2  text-gray-800 rounded-full transition-colors duration-300 flex items-center"
         >
           {" "}
           <img className="w-16 md:w-20 lg:w-24 mx-2" src={logo} alt="Logo" />

@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Isckon/Hero";
 
 //Home Files section Nav imports
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 
 //import Blog from "./components/Blogs";
 
@@ -18,7 +18,6 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import TermsAndConditions from "./components/Footer/TermsAndConditions";
 import CopyrightMediaDisclaimer from "./components/Footer/CopyrightMediaDisclaimer";
-import Copyright from "./components/Footer/Copyright";
 
 // Isckon file section Nav imports
 import AboutUS from "./components/Isckon/AboutUs";
@@ -35,7 +34,7 @@ import PrabhupadVani from "./components/BhaktiKathas/Prabhupad-vani";
 //import ReelContent from "./components/Kirtan&Lectures/Reelcontent";
 
 import KirtanLectures from "./components/Kirtan&Lectures/KirtanLectures";
-import FbPosts from "./components/Kirtan&Lectures/FbPosts";
+import BGDistribution from "./components/Kirtan&Lectures/BGDistribution";
 import Darshangallery from "./components/Kirtan&Lectures/DarshanGallery";
 
 // Quotes Files Nav Imports
@@ -81,7 +80,10 @@ const App = () => {
             <Route path="/kirtan&lectures" element={<KirtanLectures />} />
             {/* <Route path="/kirtan/reels" element={<ReelContent />} /> */}
             <Route path="/kirtan/lectures" element={<KirtanLectures />} />
-            <Route path="/kirtan/fbposts" element={<FbPosts />} />
+            <Route
+              path="/kirtan/bg-distribution"
+              element={<BGDistribution />}
+            />
             <Route
               path="/kirtan/darshan-gallery"
               element={<Darshangallery />}
@@ -115,7 +117,6 @@ const App = () => {
           </Routes>
         </main>
         <Footer />
-        <Copyright />
       </Router>
     </div>
   );

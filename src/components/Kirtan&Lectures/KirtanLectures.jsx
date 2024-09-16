@@ -5,7 +5,6 @@ import videos from "/src/constants/video.js"; // Correct import path
 const KirtanLectures = () => {
   // State to track which video is playing
   const [playingVideo, setPlayingVideo] = useState(null);
-
   return (
     <div className="bg-slate-300">
       <div className="container mx-auto px-4 py-20">
